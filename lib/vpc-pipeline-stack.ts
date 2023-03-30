@@ -7,7 +7,7 @@ export class VpcPipelineStack extends cdk.Stack {
     super(scope, id, props);
     
     const pipeline = new CodePipeline(this, 'Pipeline', {
-      pipelineName: 'MyPipeline',
+      pipelineName: 'VpcPipeline',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('anilah/vpc-pipeline', 'main'),
         commands: ['npm ci', 'npm run build', 'npx cdk synth']
@@ -15,7 +15,7 @@ export class VpcPipelineStack extends cdk.Stack {
     });
 
 
-    
+
 
 
   }
